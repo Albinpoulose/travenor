@@ -6,23 +6,41 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
+        width: screenWidth,
+        height: screenHeight,
         color: const Color(0xFF24BAEC),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          Text("data"),
-            SvgPicture.asset(
-          'assets/images/splashScreenIcon.svg',
-          width: 150,
-          height: 150,
-        ),
-
-            Expanded(
+            // SVG Icon
+            SizedBox(
+              height: screenHeight * 0.6, // 60% of screen height
+              child: Center(
+                child: SvgPicture.asset(
+                  'assets/images/splashScreenIcon.svg',
+                  width: screenWidth * 0.4, // 40% of screen width
+                  height: screenWidth * 0.4,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+      
+            // App Name Text
+            SizedBox(
+              height: screenHeight * 0.1, // 10% of screen height
               child: Center(
                 child: Text(
                   "Travenor",
-                  style: TextStyle(fontSize: 40, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.1, // responsive font size
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
