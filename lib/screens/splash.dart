@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -7,11 +8,26 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
+        color: const Color(0xFF24BAEC),
+        child: Column(
+          children: [
+          Text("data"),
+            SvgPicture.asset(
+          'assets/images/splashScreenIcon.svg',
+          width: 150,
+          height: 150,
+        ),
 
-        color: const Color(0xFF0D6EFD),
-        child: Center(child: Text("Travenor",style: TextStyle(fontSize: 40,color: Colors.white),)),
+            Expanded(
+              child: Center(
+                child: Text(
+                  "Travenor",
+                  style: TextStyle(fontSize: 40, color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

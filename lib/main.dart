@@ -31,10 +31,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0D6EFD)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF24BAEC)),
       ),
-      // home: SplashScreen(),
-      home: SignInScreen(),
+      home: SplashScreen(),
+      // home: SignInScreen(),
     );
   }
 }
