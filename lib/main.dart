@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travenor/screens/onboarding.dart';
 import 'package:travenor/screens/signin.dart';
 import 'package:travenor/screens/splash.dart';
 
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF24BAEC)),
       ),
-      home: SplashScreen(),
+      home: const Onboarding(),
+      // home: SplashScreen(),
       // home: SignInScreen(),
     );
   }

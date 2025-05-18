@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             // SVG Icon
             SizedBox(
-              height: screenHeight * 0.6, // 60% of screen height
+              height: screenHeight * 0.7, // 60% of screen height
               child: Center(
                 child: SvgPicture.asset(
                   'assets/images/splashScreenIcon.svg',
@@ -32,7 +32,7 @@ class SplashScreen extends StatelessWidget {
       
             // App Name Text
             SizedBox(
-              height: screenHeight * 0.1, // 10% of screen height
+              height: screenHeight * 0.05, // 05% of screen height
               child: Center(
                 child: Text(
                   "Travenor",
