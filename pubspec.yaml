@@ -79,6 +79,10 @@ flutter:
     - family: Comgeometr
       fonts:
         - asset: assets/fonts/Comgeometr.ttf
+
+    - family: GillsSansMT
+      fonts:
+        - asset: assets/fonts/GillsSansMT.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:travenor/conponents/curvedUnderLine.dart';
+// import 'package:travenor/conponents/curvedUnderLine.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -32,69 +32,66 @@ class Onboarding extends StatelessWidget {
           Container(
             height: screenHeight * 0.3,
             width: screenWidth * 1,
-            color: const Color.fromARGB(255, 216, 192, 35),
+            // color: const Color.fromARGB(255, 216, 192, 35),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            top: 20.0,
-                            left: 50.0,
-                            right: 50.0,
-                            bottom: 20.0,
-                          ),
-                          child: Text(
-                            "Life is short and the world is wide",
-                            style: TextStyle(
-                              fontFamily: "Comgeometr",
-                              fontSize: 30,
-                            ),
-                            softWrap: true,
-                            overflow: TextOverflow.visible,
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                    ],
-                    // Expanded(
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.only(
-                    //       top: 20.0,
-                    //       left: 50.0,
-                    //       right: 50.0,
-                    //       bottom: 20.0,
-                    //     ),
-                    //     child: Text.rich(
-                    //       TextSpan(
-                    //         children: [
-                    //           TextSpan(
-                    //             text: 'Life is short and the world is ',
-                    //             style: TextStyle(
-                    //               fontSize: 30,
-                    //               color: Colors.black,
-                    //               fontFamily: "Comgeometr",
-                    //             ),
-                    //           ),
-                    //           WidgetSpan(child: CurvedUnderlineText()),
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                  // ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                      left: 50.0,
+                      right: 50.0,
+                      bottom: 20.0,
+                    ),
+                    child: Text(
+                      "Life is short and the world is wide",
+                      style: TextStyle(fontFamily: "Comgeometr", fontSize: 30),
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                      left: 50.0,
+                      right: 50.0,
+                      bottom: 20.0,
+                    ),
+                    child: Text(
+                      "At Friends tours and travel, we customize reliable and trutworthy educational tours to destinations all over the world",
+                      style: TextStyle(fontFamily: "GillsSansMT", fontSize: 16,color: Color(0xFF7D848D)),
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
 
-          Container(
-            height: screenHeight * 0.2,
-            width: screenWidth * 1,
-            color: const Color.fromARGB(255, 2, 86, 169),
-            child: Text("Get started now!"),
+          SizedBox(
+            height: 56,
+            width: 335,
+            // color: const Color(0xFF24BAEC),
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                shape: WidgetStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      16,
+                    ), // Change this value for more/less roundness
+                  ),
+                ),
+                backgroundColor: WidgetStateProperty.all(Color(0xFF24BAEC)),
+              ),
+              child: Text("Next",style: TextStyle(color: Color(0xFFFFFFFF)),),
+            ),
           ),
         ],
       ),
