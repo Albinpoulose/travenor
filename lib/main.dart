@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:travenor/screens/onboarding.dart';
-import 'package:travenor/screens/signin.dart';
-import 'package:travenor/screens/splash.dart';
+import 'package:travenor/features/onboarding/onboarding.dart';
+import 'package:travenor/features/signin.dart';
+import 'package:travenor/features/splash.dart';
 
 void main() {
   runApp(const MyApp());
