@@ -34,6 +34,18 @@ flutter:
     - assets/images/splashScreenIcon.svg
     - assets/images/onboardingscreenNew.svg
     - assets/images/onboard.jpg
+    - assets/images/onboard2.jpg
+    - assets/images/onboard3.jpg
+    - assets/icons/facebook.jpg
+    - assets/icons/insta.jpg
+    - assets/icons/twitter.jpg
+    - assets/homescreen/avatar.png
+    - assets/homescreen/darma.png
+    - assets/homescreen/user1.png
+    - assets/homescreen/user2 .png
+    - assets/homescreen/user3.png
+    - assets/homescreen/niladiri .png
+    - assets/homescreen/darma.png
 
   fonts:
     - family: Comgeometr
