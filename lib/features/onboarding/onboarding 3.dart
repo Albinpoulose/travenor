@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'onboarding 2.dart'; // Update this import to your actual file location
-
-class Onboarding extends StatelessWidget {
-  const Onboarding({super.key});
+import '../signin/signin.dart'; // Update this import to your actual file location
+class OnboardingScreen3 extends StatelessWidget {
+  const OnboardingScreen3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +9,11 @@ class Onboarding extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFE6F7FA),
+      backgroundColor: const Color(0xFFE6F7FA), // light background similar to screenshot
       body: Stack(
         children: [
           Column(
             children: [
-              // Top image with "Skip"
               SizedBox(
                 height: screenHeight * 0.55,
                 width: screenWidth,
@@ -28,12 +25,12 @@ class Onboarding extends StatelessWidget {
                         bottomRight: Radius.circular(40),
                       ),
                       child: Image.asset(
-                        'assets/images/onboard.jpg',
+                        'assets/images/onboard3.jpg',
                         width: screenWidth,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    Positioned(
+                   Positioned(
                       top: 50,
                       right: 20,
                       child: GestureDetector(
@@ -41,7 +38,7 @@ class Onboarding extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const OnboardingScreen2(),
+                              builder: (context) => const SignInScreen(),
                             ),
                           );
                         },
@@ -59,7 +56,6 @@ class Onboarding extends StatelessWidget {
                 ),
               ),
 
-              // Content area
               Expanded(
                 child: Container(
                   width: screenWidth,
@@ -73,65 +69,35 @@ class Onboarding extends StatelessWidget {
                   child: Column(
                     children: [
                       const SizedBox(height: 24),
-
-                      // Title with "wide" highlighted and underlined
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: RichText(
                           textAlign: TextAlign.center,
-                          text: TextSpan(
-                            style: const TextStyle(
+                          text: const TextSpan(
+                            style: TextStyle(
                               fontFamily: "Comgeometr",
                               fontSize: 34,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
                             children: [
-                              const TextSpan(
-                                text: "Life is short and the\nworld is ",
-                              ),
-                              WidgetSpan(
-                                alignment: PlaceholderAlignment.baseline,
-                                baseline: TextBaseline.alphabetic,
-                                child: IntrinsicWidth(
-                                  child: Stack(
-                                    alignment: Alignment.bottomCenter,
-                                    children: [
-                                      const Text(
-                                        "wide",
-                                        style: TextStyle(
-                                          fontFamily: "Comgeometr",
-                                          fontSize: 34, // match rest of title
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.orange,
-                                          decoration: TextDecoration.underline,
-                                          decorationColor: Colors.orange,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        bottom: -5,
-                                        child: SvgPicture.asset(
-                                          'assets/images/underline.svg',
-                                          height: 12,
-                                          width: 60,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                              TextSpan(text: "People don’t take trips, trips take "),
+                              TextSpan(
+                                text: "people",
+                                style: TextStyle(
+                                  color: Colors.orange,
+                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 16),
-
-                      // Subtitle
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: const Text(
-                          "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world",
+                          "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: "GillsSansMT",
@@ -141,19 +107,18 @@ class Onboarding extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
 
                       // Pagination Dots
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            width: 25,
+                            width: 6,
                             height: 6,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF24BAEC),
-                              borderRadius: BorderRadius.circular(4),
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFD3D6DA),
+                              shape: BoxShape.circle,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -167,11 +132,11 @@ class Onboarding extends StatelessWidget {
                           ),
                           const SizedBox(width: 6),
                           Container(
-                            width: 6,
+                            width:25,
                             height: 6,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFD3D6DA),
-                              shape: BoxShape.circle,
+                           decoration: BoxDecoration(
+                              color: const Color(0xFF24BAEC),
+                              borderRadius: BorderRadius.circular(4),
                             ),
                           ),
                         ],
@@ -179,8 +144,7 @@ class Onboarding extends StatelessWidget {
 
                       const Spacer(),
 
-                      // Get Started Button
-                      Padding(
+                       Padding(
                         padding: const EdgeInsets.only(bottom: 20),
                         child: SizedBox(
                           width: 335,
@@ -191,7 +155,7 @@ class Onboarding extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder:
-                                      (context) => const OnboardingScreen2(),
+                                      (context) => const SignInScreen(),
                                 ),
                               );
                             },
@@ -202,11 +166,8 @@ class Onboarding extends StatelessWidget {
                               ),
                             ),
                             child: const Text(
-                              "Get Started",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
+                              "next",
+                              style: TextStyle(color: Colors.white, fontSize: 16),
                             ),
                           ),
                         ),
