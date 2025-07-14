@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travenor/features/profile/profile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,43 +10,34 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
 
       // ✅ Bottom Navigation Bar added here
-   bottomNavigationBar: BottomAppBar(
-    shape: const CircularNotchedRectangle(),
-    notchMargin: 8.0,
-    child: SizedBox(
-      height: 60,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.home),
-            onPressed: () {},
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        child: SizedBox(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(icon: const Icon(Icons.home), onPressed: () {}),
+              IconButton(
+                icon: const Icon(Icons.calendar_today),
+                onPressed: () {},
+              ),
+              const SizedBox(width: 40), // space for the FAB
+              IconButton(icon: const Icon(Icons.message), onPressed: () {}),
+              IconButton(icon: const Icon(Icons.person), onPressed: () {}),
+            ],
           ),
-          IconButton(
-            icon: const Icon(Icons.calendar_today),
-            onPressed: () {},
-          ),
-          const SizedBox(width: 40), // space for the FAB
-          IconButton(
-            icon: const Icon(Icons.message),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {},
-          ),
-        ],
+        ),
       ),
-    ),
-  ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-  floatingActionButton: FloatingActionButton(
-    backgroundColor: Colors.lightBlueAccent,
-    child: const Icon(Icons.search),
-    onPressed: () {
-      // Handle search action
-    },
-  ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lightBlueAccent,
+        child: const Icon(Icons.search),
+        onPressed: () {
+          // Handle search action
+        },
+      ),
 
       body: SafeArea(
         child: SingleChildScrollView(
@@ -77,9 +69,20 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          const Text(
-                            "Leonardo",
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ProfileScreen(),
+                                ), // Import this screen
+                              );
+                              // print('Leonardo tapped');
+                            },
+                            child: const Text(
+                              "Leonardo",
+                              style: TextStyle(fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ],
                       ),
@@ -165,7 +168,6 @@ class HomeScreen extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-
                       buildDestinationCard(
                         context: context,
                         imagePath: 'assets/homescreen/niladiri .png',
