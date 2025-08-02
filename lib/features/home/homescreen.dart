@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travenor/features/profile/profile.dart';
+import 'package:travenor/features/home/detailscreen.dart';
+import 'package:travenor/features/home/schedule.dart'; // ✅ Add this
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      // ✅ Bottom Navigation Bar added here
+      // ✅ Bottom Navigation Bar
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 8.0,
@@ -21,179 +23,193 @@ class HomeScreen extends StatelessWidget {
               IconButton(icon: const Icon(Icons.home), onPressed: () {}),
               IconButton(
                 icon: const Icon(Icons.calendar_today),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScheduleScreen(),
+                    ),
+                  );
+                },
               ),
-              const SizedBox(width: 40), // space for the FAB
+              const SizedBox(width: 40), // space for FAB
               IconButton(icon: const Icon(Icons.message), onPressed: () {}),
-              IconButton(icon: const Icon(Icons.person), onPressed: () {}),
+              IconButton(
+                icon: const Icon(Icons.person),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileScreen(),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.search),
         onPressed: () {
-          // Handle search action
+          // Handle search
         },
       ),
 
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Top row with avatar and notification icon
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Profile Avatar with name
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF5F5F5),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          const CircleAvatar(
-                            radius: 16,
-                            backgroundImage: AssetImage(
-                              'assets/homescreen/avatar.png',
-                            ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 🔝 Top Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF5F5F5),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 16,
+                          backgroundImage:
+                              AssetImage('assets/homescreen/avatar.png'),
+                        ),
+                        const SizedBox(width: 8),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfileScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "Leonardo",
+                            style: TextStyle(fontWeight: FontWeight.w600),
                           ),
-                          const SizedBox(width: 8),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const ProfileScreen(),
-                                ), // Import this screen
-                              );
-                              // print('Leonardo tapped');
-                            },
-                            child: const Text(
-                              "Leonardo",
-                              style: TextStyle(fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Notification icon
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFF5F5F5),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.notifications_none,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 24),
-
-                // "Explore the Beautiful world!" Text
-                RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                      height: 1.4,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: "Explore the\n",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          fontSize: 39,
                         ),
-                      ),
-                      TextSpan(
-                        text: "Beautiful ",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 39,
-                        ),
-                      ),
-                      TextSpan(
-                        text: "world!",
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.orange,
-                          fontSize: 39,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFF5F5F5),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.notifications_none),
+                  ),
+                ],
+              ),
 
-                const SizedBox(height: 30),
+              const SizedBox(height: 24),
 
-                // Best Destination Header
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      "Best Destination",
+              // 📝 Title
+              RichText(
+                text: const TextSpan(
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                    height: 1.4,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "Explore the\n",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w200, fontSize: 39),
+                    ),
+                    TextSpan(
+                      text: "Beautiful ",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 39),
+                    ),
+                    TextSpan(
+                      text: "world!",
                       style: TextStyle(
-                        fontSize: 18,
+                        color: Colors.orange,
                         fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.orange,
+                        fontSize: 39,
                       ),
                     ),
-                    Text("View all", style: TextStyle(color: Colors.orange)),
                   ],
                 ),
+              ),
 
-                const SizedBox(height: 16),
+              const SizedBox(height: 30),
 
-                // Horizontal Scroll View of Destination Cards
-                SizedBox(
-                  height: 400,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      buildDestinationCard(
+              // 📌 Destination Title
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Best Destination",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text("View all", style: TextStyle(color: Colors.orange)),
+                ],
+              ),
+
+              const SizedBox(height: 16),
+
+              // 🌍 Horizontal Card List
+              SizedBox(
+                height: 400,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const DestinationDetailsScreen(),
+                          ),
+                        );
+                      },
+                      child: buildDestinationCard(
                         context: context,
                         imagePath: 'assets/homescreen/niladiri .png',
-                        name: 'Niladiri Resorvoir',
+                        name: 'Niladiri Reservoir',
                         location: 'Tekergat, Sunamganj',
                       ),
-                      const SizedBox(width: 6),
-                      buildDestinationCard(
-                        context: context,
-                        imagePath: 'assets/homescreen/darma.png',
-                        name: 'Darma',
-                        location: 'Darma, Bandarban',
-                      ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(width: 6),
+                    buildDestinationCard(
+                      context: context,
+                      imagePath: 'assets/homescreen/darma.png',
+                      name: 'Darma',
+                      location: 'Darma, Bandarban',
+                    ),
+                  ],
                 ),
+              ),
 
-                const SizedBox(height: 20), // bottom padding
-              ],
-            ),
+              const SizedBox(height: 20),
+            ],
           ),
         ),
       ),
     );
   }
 
+  // 🧱 Destination Card Builder
   Widget buildDestinationCard({
     required BuildContext context,
     required String imagePath,
@@ -218,7 +234,8 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(20)),
             child: Image.asset(
               imagePath,
               height: 300,
@@ -245,7 +262,8 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(width: 4),
                     Text(
                       location,
-                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      style:
+                          const TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                   ],
                 ),
@@ -273,8 +291,7 @@ class HomeScreen extends StatelessWidget {
                             child: CircleAvatar(
                               radius: 10,
                               backgroundImage: AssetImage(
-                                'assets/homescreen/user1.png',
-                              ),
+                                  'assets/homescreen/user1.png'),
                             ),
                           ),
                           Positioned(
@@ -282,8 +299,7 @@ class HomeScreen extends StatelessWidget {
                             child: CircleAvatar(
                               radius: 10,
                               backgroundImage: AssetImage(
-                                'assets/homescreen/user2 .png',
-                              ),
+                                  'assets/homescreen/user2 .png'),
                             ),
                           ),
                           Positioned(
@@ -291,8 +307,7 @@ class HomeScreen extends StatelessWidget {
                             child: CircleAvatar(
                               radius: 10,
                               backgroundImage: AssetImage(
-                                'assets/homescreen/user3.png',
-                              ),
+                                  'assets/homescreen/user3.png'),
                             ),
                           ),
                           Positioned(

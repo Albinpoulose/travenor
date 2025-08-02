@@ -46,7 +46,24 @@ flutter:
     - assets/homescreen/user3.png
     - assets/homescreen/niladiri .png
     - assets/homescreen/darma.png
-
+    - assets/details/Home.png
+    - assets/details/avatar1.png
+    - assets/details/detailimage4.png
+    - assets/details/detailimage3.png
+    - assets/details/detailimage2.png
+    - assets/details/detailimage1.png
+    - assets/details/detailimage0.png
+    - assets/view/view_background.png
+    - assets/view/hotel_thumb.png
+    - assets/view/lemon_thumb.png
+    - assets/view/avatar4.png
+    - assets/view/avatar5.png
+    - assets/view/avatar6.png
+    - assets/images/underline.png
+    - assets/homescreen/niladiri.png
+    - assets/homescreen/darmar.png
+    - assets/homescreen/highreck.png
+   
   fonts:
     - family: Comgeometr
       fonts:

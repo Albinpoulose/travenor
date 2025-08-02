@@ -111,7 +111,7 @@ class Onboarding extends StatelessWidget {
                                       Positioned(
                                         bottom: -5,
                                         child: SvgPicture.asset(
-                                          'assets/images/underline.svg',
+                                          'assets/images/underline.png',
                                           height: 12,
                                           width: 60,
                                         ),
